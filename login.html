@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+<head>
+
+
+
+</head>
+<body>
+
+<form id="frm1" name="myForm" onsubmit="return checkInput()" method="post">
+	
+	First name:<br><input type="text" id="txt_fname" name="fname"><br><br>
+	Last name:<br><input type="text" id="txt_lname" name="lname"><br><br>
+	
+	<input type="submit" value="Submit">
+</form>
+
+<script>
+function checkInput() {
+	var firstName = document.getElementById("txt_fname").value;
+	var lastName = document.getElementById("txt_lname").value;
+	var setfname = "Sophie";
+	var setlname = "Amin";
+	
+	if(firstName.match(setfname) && lastName.match(setlname)){
+		alert("Correct information!");
+		return true;
+	}else if(!lastName.match(setlname) && firstName.match(setfname)){
+		document.getElementById("txt_lname").style.backgroundColor = "pink";
+		return false;
+	}else if(!firstName.match(setfname) && lastName.match(setlname)){
+		document.getElementById("txt_fname").style.backgroundColor = "pink";
+		return false;
+	}else{
+		document.getElementById("txt_lname").style.backgroundColor = "pink";
+		document.getElementById("txt_fname").style.backgroundColor = "pink";
+		return false;
+	}
+
+}	
+</script>
+
+</body>
+</html>
