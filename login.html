@@ -10,14 +10,17 @@
 
 <form id="frm1" name="myForm" onsubmit="return checkInput()" method="post">
 	
-	First name:<br><input type="text" id="txt_fname" name="fname"><br><br>
-	Last name:<br><input type="text" id="txt_lname" name="lname"><br><br>
+	First name:<br><input type="text" id="txt_fname" name="fname" onchange="return checkText()"><br><br>
+	Last name:<br><input type="text" id="txt_lname" name="lname" disabled="disabled"><br><br>
 	
 	<input type="submit" value="Submit">
 </form>
 
 <script>
 function checkInput() {
+
+	document.getElementById("txt_fname").style.backgroundColor = "white";
+	document.getElementById("txt_lname").style.backgroundColor = "white";
 	var firstName = document.getElementById("txt_fname").value;
 	var lastName = document.getElementById("txt_lname").value;
 	var setfname = "Sophie";
@@ -39,6 +42,18 @@ function checkInput() {
 	}
 
 }	
+
+function checkText() {
+	var firName = document.getElementById("txt_fname").value;
+	
+	if(firName != ""){
+		document.getElementById("txt_lname").disabled = false;
+	}else{
+		document.getElementById("txt_lname").disabled = true;
+		}
+	
+
+}
 </script>
 
 </body>
